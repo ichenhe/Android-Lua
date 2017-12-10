@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.2"
     }
 
     buildTypes {
@@ -23,6 +23,10 @@ android {
             path 'src/main/jni/Android.mk'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -35,7 +39,7 @@ publish {
     userOrg = 'liangchenhe55'
     groupId = 'cc.chenhe'
     artifactId = 'android-lua'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.2'
     desc = 'Use Lua in Android.'
     website = 'https://github.com/liangchenhe55/Android-Lua'
 }
