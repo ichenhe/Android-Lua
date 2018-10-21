@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         lua.openLibs();
         lua.LdoString(readAssetsTxt(this, "test.lua"));
 
+        new MyJavaFunction(lua).register();
+
         lua.getGlobal("setText");
         lua.pushJavaObject(textView);
-        lua.pushString("Hello Lua");
+        lua.pushString("\nHello Lua");
 
         lua.pcall(2, 0, 0);
 
