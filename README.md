@@ -9,7 +9,7 @@ blog: https://www.jianshu.com/p/908a1ac893bb
 # 依赖
 
 ```
-compile 'cc.chenhe:android-lua:1.0.2'
+implementation 'cc.chenhe:android-lua:1.0.3'
 ```
 
 # 链接
