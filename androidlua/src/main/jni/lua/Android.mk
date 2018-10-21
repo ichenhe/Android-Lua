@@ -7,10 +7,6 @@ LOCAL_SRC_FILES := lapi.c lauxlib.c lbaselib.c lbitlib.c lcode.c lcorolib.c lcty
 
 LOCAL_CFLAGS += -DLUA_DL_DLOPEN -DLUA_USE_C89 -DLUA_COMPAT_5_1 -DLUA_COMPAT_5_2 -DLUA_USE_LINUX
 
-LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog -ldl
 LOCAL_CFLAGS += -pie -fPIE
-LOCAL_LDFLAGS += -pie -fPIE
-
-LOCAL_LDLIBS    := -ld -lm
 
 include $(BUILD_STATIC_LIBRARY)

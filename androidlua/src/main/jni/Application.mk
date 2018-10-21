@@ -16,13 +16,12 @@ APP_CPPFLAGS += -O2 -Wall -Wextra -flto=3 -fvisibility=hidden
 
 APP_LDFLAGS += \
     -Wl,--exclude-libs=ALL \
-    -flto=3 \
 
-APP_STL := gnustl_static
+APP_STL := c++_static
 
 APP_OPTIM   := release
 
 APP_MODULES := liblua luajava
 
-NDK_TOOLCHAIN_VERSION := 4.9
+#NDK_TOOLCHAIN_VERSION := 4.9
 APP_PLATFORM 	:= android-14
