@@ -19,7 +19,7 @@ import java.util.Date;
  */
 public class MyJavaFunction extends JavaFunction {
 
-    public MyJavaFunction(LuaState luaState) {
+    MyJavaFunction(LuaState luaState) {
         super(luaState);
     }
 
@@ -36,11 +36,11 @@ public class MyJavaFunction extends JavaFunction {
         return 1; // 返回值的个数 // Number of return values
     }
 
-    public void register() {
+    void register() {
         try {
             // 注册为 Lua 全局函数
             // Register as a Lua global function
-            register("testJava");
+            register("getTime");
         } catch (LuaException e) {
             e.printStackTrace();
         }

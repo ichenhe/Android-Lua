@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidLua</string>
+    <string name="get_lua_variable">get lua variable \'v1\'</string>
+    <string name="set_lua_variable">set lua variable \'v2\'</string>
+    <string name="get_lua_variable_v2">get lua variable \'v2\'</string>
+    <string name="inject_java_fun">inject java function</string>
+    <string name="call_inject_fun">call injected function</string>
+    <string name="get_lua_table">get lua table \'table\'</string>
+    <string name="set_lua_table">set lua table (override)</string>
+    <string name="call_lua_fun">call lua fun</string>
+    <string name="inject_java_obj">inject java object</string>
 </resources>

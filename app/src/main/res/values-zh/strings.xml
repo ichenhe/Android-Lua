@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidLua</string>
+    <string name="get_lua_variable">获取 lua 变量 v1</string>
+    <string name="set_lua_variable">注入 lua 变量 v2</string>
+    <string name="get_lua_variable_v2">获取 lua 变量 v2</string>
+    <string name="inject_java_fun">注入 java 函数</string>
+    <string name="call_inject_fun">lua 调用 java 注入的函数</string>
+    <string name="get_lua_table">获取 lua 表（数组）table</string>
+    <string name="set_lua_table">注入 lua 表（覆盖）</string>
+    <string name="call_lua_fun">调用 lua 函数</string>
+    <string name="inject_java_obj">注入 java 对象</string>
+</resources>
