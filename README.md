@@ -264,6 +264,71 @@ lua.setGlobal("red");
 
 > **警告：** 由于注册对象会自动注册其所有成员函数与变量，因此开销是非常大的。请谨慎使用这一特性。
 
+## Lua 回调 （HTTP 请求）
+
+前面讲了 Lua 调用 java 函数并可以取得返回值，这是在单线程情况下的。如果 java 需要异步执行一个耗时的操作（例如 HTTP 请求），那么就需要 Lua 提供一个回调函数。Lua 是支持闭合函数（closure）的，因此回调要比 java 定义一个接口简单不少。下面看一个例子：
+
+java:
+
+```java
+// 简单起见省略了一些代码和必要的 try-catch
+public class AsyncJavaFunction extends JavaFunction {
+    // lua 回调函数
+    private LuaObject callbackFun;
+
+    @Override
+    public int execute() {
+        if (L.isFunction(2)) {
+            callbackFun = L.getLuaObject(2); // 获取回调
+            new MyAsync().execute();
+        }
+        return 0;
+    }
+
+    private class MyAsync extends AsyncTask<Integer, Integer, Integer> {
+        long t;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            t = System.currentTimeMillis();
+        }
+        @Override
+        protected Integer doInBackground(Integer... integers) {
+            Thread.sleep(2000);  // 模拟耗时操作（例如网络请求）
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
+            if (callbackFun != null)
+               callbackFun.call(new Object[]{"OK", System.currentTimeMillis() - t}, 0);
+        }
+    }
+}
+```
+
+lua:
+
+```lua
+http(function(result, time)
+        r = string.format("result: %s\ntime: %dms", result, time)
+    end
+)
+-- 最后r的结果可能是：result: OK \n time: 2231ms
+```
+
+类似前面的，首先我们需要向 Lua 注入一个 java 函数并取得 Lua 传入的参数。只不过这一次有一个参数是 `Function` 类型的，它可以直接使用成员函数 `call()` 来执行，在 Lua 中表现为传入一个闭包函数作为参数。
+
+当 java 异步任务执行完毕后，通过 `call()` 通知回调，传入一个 `Object` 数组作为参数，这里有2个成员，分别是结果与耗时。`0` 表示回调函数没有返回值，如果有会直接入栈，利用 `lua.toXXX()` 取出就行了。
+
+> **提示：**
+>
+> 这里采用的是闭包回调。其实还可以使用全局函数作为回调。
+>
+> 只需要在 Lua 中定义好一个全局函数，然后直接把函数名(String)作为参数传给 java 即可。通过前面 `Java 调用 Lua 函数` 章节所讲的方法就可以执行这个“回调”了。
+>
+> 这两种方式各有优点。前者代码条理更加清晰，后者比较适合复杂且重复使用的回调。
+
 ## 更多高级用法
 
 基础用法基本上讲完了，其实所谓的高级用法都是由基础用法拼接来的。尤其是 `table`，这在 Lua 中是一个非常强大与灵活的东西。以及 `metatable` 更是如此。如果想掌握高级应用，还得深入了解 Lua 本身的原理，这里就不再赘述了。
