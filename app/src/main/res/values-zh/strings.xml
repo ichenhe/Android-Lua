@@ -10,4 +10,5 @@
     <string name="set_lua_table">注入 lua 表（覆盖）</string>
     <string name="call_lua_fun">调用 lua 函数</string>
     <string name="inject_java_obj">注入 java 对象</string>
+    <string name="lua_callback">Lua 回调</string>
 </resources>

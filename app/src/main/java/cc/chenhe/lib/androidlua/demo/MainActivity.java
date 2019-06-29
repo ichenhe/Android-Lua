@@ -1,5 +1,6 @@
 package cc.chenhe.lib.androidlua.demo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import org.keplerproject.luajava.LuaStateFactory;
 import java.io.IOException;
 import java.io.InputStream;
 
+@SuppressLint("SetTextI18n")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LuaState lua = null;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btnSetLuaTable).setOnClickListener(this);
         findViewById(R.id.btnCallLua).setOnClickListener(this);
         findViewById(R.id.btnInjectJavaObj).setOnClickListener(this);
+        findViewById(R.id.btnLuaCallback).setOnClickListener(this);
 
     }
 
@@ -112,6 +115,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lua.pushInteger(Color.RED);
                 lua.setGlobal("red");
                 lua.LdoString("textView:setTextColor(red)");
+                break;
+            case R.id.btnLuaCallback:
+                textView.setText("Loading...");
+                new AsyncJavaFunction(lua).register();
+                lua.getGlobal("luaCallback");
+                lua.pushJavaObject(textView);
+                lua.pcall(1, 0, 0);
                 break;
         }
         Log.i("LuaStack", lua.dumpStack());

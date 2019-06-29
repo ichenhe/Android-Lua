@@ -9,4 +9,5 @@
     <string name="set_lua_table">set lua table (override)</string>
     <string name="call_lua_fun">call lua fun</string>
     <string name="inject_java_obj">inject java object</string>
+    <string name="lua_callback">lua callback</string>
 </resources>

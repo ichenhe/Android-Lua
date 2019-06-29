@@ -22,8 +22,11 @@ function extreme(a, b, c)
     return max, min
 end
 
-function setText(tv,con)
-    -- testJava() 由 Java 注入。 Injected by Java.
-    tv:setText(testJava(con));
-    tv:setTextSize(50);
+function luaCallback(tv)
+    -- http 函数是由 java `AsyncJavaFunction` 类注入的
+    -- http function was injected by java `AsyncJavaFunction`
+    http(function(result, time)
+            tv:setText(string.format("result: %s\ntime: %dms", result, time));
+        end
+    )
 end
