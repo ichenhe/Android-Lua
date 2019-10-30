@@ -521,11 +521,11 @@ static int llex (LexState *ls, SemInfo *seminfo) {
         return TK_EOS;
       }
       default: {
-        if (lislalpha(ls->current)) {  /* identifier or reserved word? */
+        if (lislalpha(ls->current) || ls->current >= 0x80) {  /* identifier or reserved word? */
           TString *ts;
           do {
             save_and_next(ls);
-          } while (lislalnum(ls->current));
+          } while (lislalnum(ls->current) || ls->current >= 0x80);
           ts = luaX_newstring(ls, luaZ_buffer(ls->buff),
                                   luaZ_bufflen(ls->buff));
           seminfo->ts = ts;

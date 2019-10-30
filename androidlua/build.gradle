@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 100
+        versionName "1.1.0"
 
         consumerProguardFiles 'proguard-rules.pro'
     }
@@ -32,7 +32,7 @@ dependencies {
 //    userOrg = 'liangchenhe55'
 //    groupId = 'cc.chenhe'
 //    artifactId = 'android-lua'
-//    publishVersion = '1.0.4'
+//    publishVersion = '1.1.0'
 //    desc = 'Use Lua in Android.'
 //    website = 'https://github.com/liangchenhe55/Android-Lua'
 //}
