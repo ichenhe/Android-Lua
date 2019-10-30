@@ -9,7 +9,17 @@ blog: https://www.jianshu.com/p/908a1ac893bb
 # 依赖 Dependency
 
 ```
-implementation 'cc.chenhe:android-lua:1.0.3'
+implementation 'cc.chenhe:android-lua:1.0.4'
+```
+
+# 混淆 ProGuard
+
+如果你使用R8（Gradle 3.4.0　默认使用）则无需添加任何规则。否则请添加下述内容：
+
+If you use R8 which is default in Gradle 3.4.0 nothing need to do. Else add the rules below:
+
+```
+-keep class org.keplerproject.luajava.**{ *; }
 ```
 
 # DEMO
