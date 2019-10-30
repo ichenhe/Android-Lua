@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Only need to add it manually when use ProGuard.
+# If you use R8 witch is default now, the rule is redundant.
+-keep class org.keplerproject.luajava.**{ *; }

@@ -7,15 +7,10 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.0.3"
-    }
+        versionCode 4
+        versionName "1.0.4"
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
     externalNativeBuild {
@@ -37,7 +32,7 @@ publish {
     userOrg = 'liangchenhe55'
     groupId = 'cc.chenhe'
     artifactId = 'android-lua'
-    publishVersion = '1.0.3'
+    publishVersion = '1.0.4'
     desc = 'Use Lua in Android.'
     website = 'https://github.com/liangchenhe55/Android-Lua'
 }
