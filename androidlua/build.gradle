@@ -1,4 +1,9 @@
-apply plugin: 'com.android.library'
+import com.vanniktech.maven.publish.SonatypeHost
+
+plugins {
+    id("com.android.library")
+    id("com.vanniktech.maven.publish")
+}
 
 android {
     compileSdkVersion 31
@@ -25,4 +30,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+mavenPublish {
+    sonatypeHost = SonatypeHost.S01
 }

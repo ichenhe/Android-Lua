@@ -1,6 +1,6 @@
 # Android-Lua
 
-[ ![Download](https://api.bintray.com/packages/liangchenhe55/maven/android-lua/images/download.svg) ](https://bintray.com/liangchenhe55/maven/android-lua/_latestVersion)
+[ ![Download](https://img.shields.io/maven-central/v/me.chenhe/android-lua?style=flat-square) ](https://search.maven.org/artifact/me.chenhe/android-lua)
 
 Based on [Androlua for Lua5.3.3](https://github.com/lendylongli/AndroLua), make some practical changes.
 
@@ -9,8 +9,12 @@ blog: https://www.jianshu.com/p/908a1ac893bb
 # 依赖 Dependency
 
 ```
-implementation 'cc.chenhe:android-lua:1.1.0'
+implementation "me.chenhe:android-lua:1.1.1"
 ```
+
+⚠️ 由于 JCenter 停止维护，本 lib 已经传至 maven central，**坐标变更为 `me.chenhe:android-lua`。**
+
+Because JCenter is read only now, this lib has published to maven central. **But the coordinate chganged to `me.chenhe:android-lua`.**
 
 # 混淆 ProGuard
 
