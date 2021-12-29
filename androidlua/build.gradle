@@ -1,12 +1,11 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 100
         versionName "1.1.0"
 
@@ -27,12 +26,3 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-//publish {
-//    userOrg = 'liangchenhe55'
-//    groupId = 'cc.chenhe'
-//    artifactId = 'android-lua'
-//    publishVersion = '1.1.0'
-//    desc = 'Use Lua in Android.'
-//    website = 'https://github.com/liangchenhe55/Android-Lua'
-//}
