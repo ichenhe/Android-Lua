@@ -14,7 +14,7 @@ implementation "me.chenhe:android-lua:1.1.1"
 
 ⚠️ 由于 JCenter 停止维护，本 lib 已经传至 maven central，**坐标变更为 `me.chenhe:android-lua`。**
 
-Because JCenter is read only now, this lib has published to maven central. **But the coordinate chganged to `me.chenhe:android-lua`.**
+Because JCenter is read only now, this lib has published to maven central. **But the coordinate changed to `me.chenhe:android-lua`.**
 
 # 混淆 ProGuard
 
